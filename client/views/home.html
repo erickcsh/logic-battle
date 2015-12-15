@@ -1,0 +1,24 @@
+<template name='home'>
+  {{> signupLogin}}
+  {{#if currentUser}}
+    {{> optionsList}}
+  {{/if}}
+</template>
+
+<template name='status'>
+  <p> <a href='/'>_&larr; home </a></p>
+</template>
+
+<template name='optionsList'>
+  <ul>
+    <li>
+      <a id='play-now' href='/room/join_now'> Play Now </a>
+    </li>
+    <li>
+      <a href='/room/join'> Join Game </a>
+    </li>
+    <li>
+      <a href='/room/new'> Create Game </a>
+    </li>
+  </ul>
+</template>

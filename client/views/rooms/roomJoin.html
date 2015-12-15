@@ -1,0 +1,13 @@
+<template name='roomJoin'>
+  {{> signupLogin}}
+  {{#if currentUser}}
+    {{> status}}
+
+    <div>
+      <form>
+        <input type='text' id='room-code' placeholder='Room ID' />
+        <button type='search' id='search'> Search </button>
+      </form>
+    </div>
+  {{/if}}
+</template>

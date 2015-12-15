@@ -1,0 +1,29 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "iron-router": {
+        "git": "https://github.com/eventedmind/iron-router.git",
+        "branch": "blaze-integration"
+      },
+      "moment": {}
+    },
+    "packages": {
+      "iron-router": {
+        "git": "https://github.com/eventedmind/iron-router.git",
+        "branch": "blaze-integration",
+        "commit": "ead3a0a6f7e02cfe5780e9ad3b1268696ec2d8c1"
+      },
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.8.1",
+        "commit": "722ea63783d594341023836b7d418ab2567dab8c"
+      },
+      "blaze-layout": {
+        "git": "https://github.com/EventedMind/blaze-layout.git",
+        "tag": "v0.2.1",
+        "commit": "f52f416d6277f27b11832355298553e46b8cc6fd"
+      }
+    }
+  }
+}

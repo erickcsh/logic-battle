@@ -8,6 +8,7 @@ RoomFactory.createRoom = function(privacy) {
     players: [],
     playersCount: 0,
     playing: false,
+    displayingResults: false,
     full: false,
     game: null
   };
@@ -25,8 +26,16 @@ RoomFactory.addPlayer = function(room, playerId) {
 }
 
 RoomFactory.removePlayer = function(room, playerId) {
-  room.players.playerId;
-  room.playersCount--;
+  room.players = _.without(room.players, playerId);
+  room.playersCount = room.players.length;
 
   if(room.playersCount != 4) { room.full = false; }
 }
+
+RoomFactory.startGame = function(room) {
+  var game = GameFactory.createGame(room.players);
+  room.game = game;
+  room.playing = true;
+  room.displayingResults = false;
+}
+

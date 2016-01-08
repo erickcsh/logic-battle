@@ -1,7 +1,12 @@
 <template name='home'>
   {{> signupLogin}}
   {{#if currentUser}}
-    {{> optionsList}}
+    <div class='container'>
+      <h1 class='logoTitle'> Logic Battle </h1>
+      <div class='mainOptions'>
+        {{> optionsList}}
+      </div>
+    </div>
   {{/if}}
 </template>
 
@@ -10,15 +15,9 @@
 </template>
 
 <template name='optionsList'>
-  <ul>
-    <li>
-      <a id='play-now' href='/room/join_now'> Play Now </a>
-    </li>
-    <li>
-      <a href='/room/join'> Join Game </a>
-    </li>
-    <li>
-      <a href='/room/new'> Create Game </a>
-    </li>
-  </ul>
+  <div class='homeOptions'>
+    <a id='play-now' href='/room/join_now' class='button primary'> Play Now </a>
+    <a href='/room/join' class='button primary'> Join Game </a>
+    <a href='/room/new' class='button primary'> Create Game </a>
+  </div>
 </template>

@@ -3,13 +3,22 @@
   {{#if currentUser}}
     {{> status}}
 
-    <div>
+    <div class='container centeredContainer'>
+      <div class='row'>
+        <h2> New Room </h2>
+      </div>
       <form>
-        <input id='private_room' name='privacy' type='radio' value='private' />
-        <label for='private_room'> Private </label>
-        <input id='public_room' name='privacy' type='radio' value='public' />
-        <label for='public_room'> Public </label>
-        <button id='create-game'> Create Game </button>
+        <div class='row'>
+          <div class='column-2'>
+            <input id='private_room' name='privacy' type='radio' value='private' />
+            <label for='private_room'> Private </label>
+            <input id='public_room' name='privacy' type='radio' value='public' />
+            <label for='public_room'> Public </label>
+          </div>
+        </div>
+        <div class='row'>
+          <button id='create-game' class='button'> Create Game </button>
+        </div>
       </form>
     </div>
   {{/if}}

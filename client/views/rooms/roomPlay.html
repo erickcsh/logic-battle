@@ -1,0 +1,73 @@
+<template name='roomPlay'>
+  {{#if playing}}
+    {{> roomGame}}
+  {{else}}
+    {{#if displayingResults}}
+      {{> roomResults}}
+    {{else}}
+      {{> roomWait}}
+    {{/if}}
+  {{/if}}
+</template>
+
+<template name='roomWait'>
+  {{> signupLogin}}
+  {{#if currentUser}}
+    {{> status}}
+    <ul>
+      {{#each players}}
+        <li>
+          {{username}}
+        </li>
+      {{/each}}
+    </ul>
+    <p> {{playersCount}}/4</p>
+    {{#unless full}}
+      <p> Waiting for Players </p>
+    {{/unless}}
+    <p> Room Code: {{_id}} </p>
+    <div>
+      <button id='start-game'> Start Game </button>
+      <button id='leave-room'> Leave Room </button>
+    </div>
+  {{/if}}
+</template>
+
+<template name='roomResults'>
+  {{> signupLogin}}
+  {{#if currentUser}}
+    {{> status}}
+    <ul>
+      {{#each sortResults}}
+        <li>
+          {{userName player}}
+          {{score}}
+        </li>
+      {{/each}}
+    </ul>
+    <p> Winner: {{userName winner.player}} </p>
+    <p> Wait: {{secondsLeft}} </p>
+  {{/if}}
+</template>
+
+<template name='roomGame'>
+  <div>
+    <h4> {{currentQuestion.question}} </h4>
+    {{#each currentQuestion.responses}}
+      {{#unless selected}}
+        {{> questionAnswer}}
+      {{/unless}}
+    {{/each}}
+    {{#each game.players}}
+      <div>
+        <h6> {{userName player}} </h6>
+        <p> {{score}} </p>
+      </div>
+    {{/each}}
+    <button id='leave-room'> Leave Room </button>
+  </div>
+</template>
+
+<template name='questionAnswer'>
+  <button> {{answer}} </button>
+</template>

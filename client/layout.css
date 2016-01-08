@@ -1,0 +1,52 @@
+.container {
+  background: #FFF;
+  width: 60vh;
+  height: 65vh;
+  padding: 2em;
+  margin: 1em auto;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.4);
+  -moz-box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.4);
+  box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.4);
+}
+
+.row {
+  width: 100%;
+  padding: 1em;
+}
+
+.column-12 {
+  display: inline-block;
+  margin: 0;
+  width: 50%;
+}
+
+.column-2 {
+  display: inline;
+  margin: 0;
+  width: 50%;
+}
+
+.columnCentered {
+}
+
+.centeredContainer {
+  max-width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2em;
+}
+
+/*
+deepBlue #324860;
+
+lightBlue #2C97DE;
+
+green #3CC1A3;
+
+red #D95A3C;
+
+lightGrey #F8F9F9;
+
+darkGrey #4C4C4C;
+*/

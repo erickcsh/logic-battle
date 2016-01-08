@@ -1,19 +1,57 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background: #ececec;
+  font-family: "RobotoDraft", "Roboto", sans-serif;
+  background: #F8F9F9;
+  color: #4C4C4C;
 }
 
 #main {
-  max-width: 900px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #F8F9F9;
   margin: auto;
 }
 
+.logoTitle {
+  text-align: center;
+  margin: 1em auto 3em auto;
+  font-size: 2em;
+}
+
+.homeOptions {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.homeOptions .button {
+  margin: 2em auto;
+  max-width: 15em;
+}
+
+.button {
+  display: block;
+  text-decoration: none;
+  background: #2C97DE;
+  border: none;
+  color: #FFF;
+  padding: 0.8em;
+  -webkit-box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.4);
+  -moz-box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.4);
+  box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.4);
+}
+
+.button:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 #login {
-  background: #ccc;
-  border: 1px solid #474747;
-  margin: 10px 0;
+  background: #324860;
+  height: 4vh;
+  color: #FFF;
+  border-bottom: 7px solid #2C97DE;
   padding: 10px;
 }
 
@@ -25,45 +63,6 @@ li a {
   text-decoration: none;
   padding: 10px 2px;
   color: #000;
-}
-
-li a:hover {
-  text-decoration: underline;
-}
-
-.card {
-  background: #fff;
-  border: 1px solid #000;
-  display: inline-block;
-  margin: 10px;
-  width: 112px;
-  height: 175px;
-  text-align: center;
-  border-radius: 5px;
-}
-
-.card div:nth-of-type(1) {
-  font-size: 80px;
-  line-height: 165px;
-}
-
-.card div:nth-of-type(2) {
-  position: relative;
-  bottom: 40px;
-}
-
-.Coins { color: gold; }
-.Cups { color: red; }
-.Swords { color: blue; }
-.Clubs { color: green; }
-
-#hand .card:hover {
-  cursor: pointer;
-  transform: rotate(10deg);
-}
-
-#table, #hand {
-  min-height: 250px;
 }
 
 .column {

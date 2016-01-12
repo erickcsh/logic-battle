@@ -1,12 +1,15 @@
 <template name='home'>
-  {{> signupLogin}}
   {{#if currentUser}}
     <div class='container'>
-      <h1 class='logoTitle'> Logic Battle </h1>
-      <div class='mainOptions'>
-        {{> optionsList}}
+      <div class='bodyContainer'>
+        <h1 class='logoTitle'> Logic Battle </h1>
+        <div class='mainOptions'>
+          {{> optionsList}}
+        </div>
       </div>
     </div>
+  {{else}}
+    {{> signupLogin}}
   {{/if}}
 </template>
 

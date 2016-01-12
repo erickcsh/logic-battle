@@ -24,8 +24,13 @@ if(Meteor.isServer) {
       }
     },
     getRandomRoom: function() {
-      // TODO remove rooms where user is present
-      return Rooms.findOne({ playing: false, full: false });
+      return Rooms.findOne({ playing: false, full: false, players: {$nin: [this.userId] } });
+    },
+    startGame: function(roomCode) {
+      var room = Rooms.findOne(roomCode);
+      RoomFactory.startGame(room);
+      Rooms.update(room._id, room);
+      return room;
     },
     answerQuestion: function(roomCode, answer) {
       var room = Games.answerQuestion(roomCode, answer);
@@ -68,12 +73,6 @@ if(Meteor.isClient) {
 }
 
 Meteor.methods({
-  startGame: function(roomCode) {
-    var room = Rooms.findOne(roomCode);
-    RoomFactory.startGame(room);
-    Rooms.update(room._id, room);
-    return room;
-  },
   deleteRoom: function(roomCode) {
     Rooms.findOne({ roomCode: roomCode });
   }

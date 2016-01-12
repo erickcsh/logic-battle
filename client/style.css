@@ -16,7 +16,7 @@ body {
 
 .logoTitle {
   text-align: center;
-  margin: 1em auto 3em auto;
+  margin: 1em auto 2em auto;
   font-size: 2em;
 }
 
@@ -32,11 +32,15 @@ body {
 
 .button {
   display: block;
+  box-sizing: content-box;
   text-decoration: none;
+  text-align: center;
+  font-size: 1em;
   background: #2C97DE;
   border: none;
   color: #FFF;
   padding: 0.8em;
+  min-width: 1em;
   -webkit-box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.4);
   -moz-box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.4);
   box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.4);
@@ -47,6 +51,29 @@ body {
   cursor: pointer;
 }
 
+.centeredButton {
+  min-width: 60%;
+  max-width: 60%;
+  margin: auto;
+}
+
+.positive {
+  background: #3CC1A3;
+}
+
+
+.negative {
+  background: #D95A3C;
+}
+
+a.link, a.link:visited {
+  color: #2C97DE;
+}
+
+a.link:hover {
+  color: #0079FD;
+}
+
 #login {
   background: #324860;
   height: 4vh;
@@ -55,22 +82,33 @@ body {
   padding: 10px;
 }
 
-li a span {
-  font-size: 80%;
+.mainContent {
+  height: 96vh;
 }
 
-li a {
-  text-decoration: none;
-  padding: 10px 2px;
-  color: #000;
+input[type='text'], input[type='password'] {
+  position: relative;
+  outline: none;
+  box-shadow: none;
+  color: #4C4C4C;
+  padding: 0;
+  width: 100%;
+  background: transparent;
+  border: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  width: 100%;
+  border-bottom: 1px solid #A9A9A9;
+  padding-bottom: 0.4em;
+  font-size: 0.9em;
 }
 
-.column {
-  width: 48%;
-  float: left;
-  padding-right: 2%;
+input[type='text']:focus, input[type='password']:focus {
+  border-bottom: 2px solid #2C97DE !important;
 }
 
-.column:last-of-type {
-  padding: 0 0 0 2%;
+label {
+  font-size: 1.2em;
 }
+

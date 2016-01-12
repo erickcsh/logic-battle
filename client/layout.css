@@ -1,8 +1,8 @@
 .container {
+  position: relative;
   background: #FFF;
   width: 60vh;
-  height: 65vh;
-  padding: 2em;
+  max-height: 94%;
   margin: 1em auto;
   border: 1px solid #ccc;
   -webkit-box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.4);
@@ -10,9 +10,65 @@
   box-shadow: 6px 6px 10px 0px rgba(0,0,0,0.4);
 }
 
+.bodyContainer {
+  padding: 2em;
+}
+
+.footerContainer {
+  padding: 2em;
+}
+
+.textLeft {
+  text-align: left;
+}
+
+.textRight {
+  text-align: right;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.titleContainer {
+  text-align: center;
+  padding: 1.4em 1em 0.8em 1em;
+  border-bottom: 1px solid #ccc;
+}
+
+.playersList {
+  min-height: 15vh;
+}
+
+.playersList ul {
+  margin: 0.6em 0.8em;
+  list-style: none;
+  font-size: 1.15em;
+  color: #969696;
+  padding: 0;
+}
+
+.playersList ul li {
+  padding: 0.5em 0 0.3em 1.2em;
+  border-bottom: 1px solid #C4C4C4;
+}
+
 .row {
   width: 100%;
-  padding: 1em;
+  margin: 1em 0;
+  padding: 0.5em 0
+}
+
+.smallRow {
+  margin: 0em 0 !important;
+}
+
+.smallRow .column-2 {
+  margin: 0 !important;
+}
+
+.smallRow .column-2:last-child {
+  float: right;
 }
 
 .column-12 {
@@ -22,19 +78,23 @@
 }
 
 .column-2 {
-  display: inline;
-  margin: 0;
-  width: 50%;
+  display: inline-block;
+  margin: 0 1%;
+  width: 46%;
 }
 
-.columnCentered {
+.column-3 {
+  display: inline-block;
+  margin: 0 0.3%;
+  width: 24%;
 }
 
-.centeredContainer {
-  max-width: 70%;
-  margin: 0 auto;
-  text-align: center;
-  padding: 2em;
+.detailColumn {
+  display: inline-block;
+}
+
+.detailColumn:last-child {
+  float: right;
 }
 
 /*

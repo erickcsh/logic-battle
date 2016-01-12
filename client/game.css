@@ -1,0 +1,35 @@
+.questionContainer {
+  padding: 1em 2em;
+  max-height: 25%;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+.questionContainer .question {
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.questionOptions {
+  min-height: 20vh;
+  padding: 0 2em;
+}
+
+.questionOptions .button {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0.5em auto;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.questionFooter {
+  padding: 0.5em 2em 2em 2em !important;
+  box-sizing: border-box;
+}
+
+.questionFooter h1, .questionFooter h2, .questionFooter h3,
+.questionFooter h4, .questionFooter h5, .questionFooter h6,  .questionFooter p  {
+  margin: 0 !important;
+}

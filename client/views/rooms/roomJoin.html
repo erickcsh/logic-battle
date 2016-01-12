@@ -1,13 +1,24 @@
 <template name='roomJoin'>
-  {{> signupLogin}}
   {{#if currentUser}}
     {{> status}}
 
-    <div>
-      <form>
-        <input type='text' id='room-code' placeholder='Room ID' />
-        <button type='search' id='search'> Search </button>
-      </form>
+    <div class='container'>
+      <div class='titleContainer'>
+        <h1> Join Room </h1>
+      </div>
+      <div class='bodyContainer'>
+        <form>
+          <div class='row'>
+            <input type='text' id='room-code' placeholder='Room ID' />
+          </div>
+          <div class='row'>
+            <button class='button primary centeredButton positive' type='search' id='search'> Search </button>
+          </div>
+          <div class='row'>
+            <a class='button primary centeredButton negative' href='/'> Cancel </a>
+          </div>
+        </form>
+      </div>
     </div>
   {{/if}}
 </template>

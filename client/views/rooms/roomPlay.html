@@ -1,73 +1,94 @@
 <template name='roomPlay'>
-  {{#if playing}}
-    {{> roomGame}}
-  {{else}}
-    {{#if displayingResults}}
-      {{> roomResults}}
-    {{else}}
-      {{> roomWait}}
-    {{/if}}
-  {{/if}}
-</template>
-
-<template name='roomWait'>
-  {{> signupLogin}}
   {{#if currentUser}}
     {{> status}}
-    <ul>
-      {{#each players}}
-        <li>
-          {{username}}
-        </li>
-      {{/each}}
-    </ul>
-    <p> {{playersCount}}/4</p>
-    {{#unless full}}
-      <p> Waiting for Players </p>
-    {{/unless}}
-    <p> Room Code: {{_id}} </p>
-    <div>
-      <button id='start-game'> Start Game </button>
-      <button id='leave-room'> Leave Room </button>
+
+    <div class='container'>
+      {{#if playing}}
+        {{> roomGame}}
+      {{else}}
+        {{#if displayingResults}}
+          {{> roomResults}}
+        {{else}}
+          {{> roomWait}}
+        {{/if}}
+      {{/if}}
     </div>
   {{/if}}
 </template>
 
-<template name='roomResults'>
-  {{> signupLogin}}
-  {{#if currentUser}}
-    {{> status}}
-    <ul>
-      {{#each sortResults}}
-        <li>
-          {{userName player}}
-          {{score}}
-        </li>
-      {{/each}}
-    </ul>
-    <p> Winner: {{userName winner.player}} </p>
-    <p> Wait: {{secondsLeft}} </p>
-  {{/if}}
+<template name='roomWait'>
+  <div class='titleContainer'>
+    {{#unless full}}
+      <h1> Waiting for players </h1>
+    {{else}}
+      <h1> Ready to play</h1>
+    {{/unless}}
+  </div>
+  <div class='bodyContainer textReduced'>
+    <div class='row smallRow'>
+      <div class='detailColumn'>
+        <p class='mainTextColumn'> Room Code: </p>
+      </div>
+      <div class='detailColumn textRight'>
+        <p class='secondaryTextColumn'> {{_id}} </p>
+      </div>
+    </div>
+    <div class='row smallRow'>
+      <h4> Players {{playersCount}}/4</h4>
+      <div class='playersList'>
+        <ul>
+          {{#each players}}
+            <li>
+              {{username}}
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <div class='row smallRow'>
+      <button class='button primary centeredButton positive' id='start-game'> Start Game </button>
+    </div>
+    <div class='row smallRow'>
+      <button class='button primary centeredButton negative' id='leave-room'> Leave Room </button>
+    </div>
+  </div>
 </template>
 
 <template name='roomGame'>
-  <div>
-    <h4> {{currentQuestion.question}} </h4>
+  <div class='questionContainer'>
+    <h1 class='question'> {{currentQuestion.question}} </h1>
+  </div>
+  <div class='questionOptions'>
     {{#each currentQuestion.responses}}
       {{#unless selected}}
         {{> questionAnswer}}
       {{/unless}}
     {{/each}}
+  </div>
+  <div class='footerContainer questionFooter'>
     {{#each game.players}}
-      <div>
+      <div class='column-3 textCenter'>
         <h6> {{userName player}} </h6>
         <p> {{score}} </p>
       </div>
     {{/each}}
-    <button id='leave-room'> Leave Room </button>
   </div>
 </template>
 
 <template name='questionAnswer'>
-  <button> {{answer}} </button>
+  <button class='button primary'> {{answer}} </button>
 </template>
+
+<template name='roomResults'>
+  <p> Winner: {{userName winner.player}} </p>
+  <ol>
+    {{#each sortResults}}
+      <li>
+        {{userName player}}
+        {{score}}
+      </li>
+    {{/each}}
+  </ol>
+  <p> Wait: {{secondsLeft}} </p>
+</template>
+

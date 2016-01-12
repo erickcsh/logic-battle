@@ -1,20 +1,25 @@
-<template name='signup'>
-  <form>
-    <h1> Sign Up </h1>
-    <input type='text' id='su-email' placeholder='Email' />
-    <input type='text' id='su-username' placeholder='Username' />
-    <input type='password' id='su-password' placeholder='Password' />
-    <button> Sign Up </button>
-  </form>
-</template>
-
 <template name='login'>
-  <form>
-    <h1> Log In</h1>
-    <input type='text' id='li-username' placeholder='Username' />
-    <input type='password' id='li-password' placeholder='Password' />
-    <button> Log In </button>
-  </form>
+  <div class='container'>
+    <div class='titleContainer'>
+      <h1> Log In</h1>
+    </div>
+    <div class='bodyContainer'>
+      <form>
+        <div class='row'>
+          <input type='text' id='li-username' placeholder='Username' />
+        </div>
+        <div class='row'>
+          <input type='password' id='li-password' placeholder='Password' />
+        </div>
+        <div class='row'>
+          <button class='button primary centeredButton'> Log In </button>
+        </div>
+      </form>
+    </div>
+    <div class='footerContainer textRight'>
+      <a class='link' href='/signIn'> Need an account? </a>
+    </div>
+  </div>
 </template>
 
 <template name='logout'>
@@ -25,16 +30,9 @@
 </template>
 
 <template name='signupLogin'>
-  <div id='login'>
-    {{#if loggingIn}}
-      Logging in . . .
-    {{else}}
-      {{#if currentUser}}
-        {{> logout}}
-      {{else}}
-        {{> signup}}
-        {{> login}}
-      {{/if}}
-    {{/if}}
-  </div>
+  {{#if loggingIn}}
+    Logging in . . .
+  {{else}}
+    {{> login}}
+  {{/if}}
 </template>

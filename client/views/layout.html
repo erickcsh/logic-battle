@@ -1,5 +1,12 @@
 <template name='layout'>
   <div id='main'>
-    {{> yield}}
+    <div id='login'>
+      {{#if currentUser}}
+        {{> logout}}
+      {{/if}}
+    </div>
+    <div class='mainContent'>
+      {{> yield}}
+    </div>
   </div>
 </template>

@@ -1,0 +1,21 @@
+.titleContainer h1, .titleContainer h2, .titleContainer h3,
+.titleContainer h4, .titleContainer h5, .titleContainer h6,
+.titleContainer p {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.textReduced p, .textReduced h1, .textReduced h2, .textReduced h3,
+.textReduced h4, .textReduced h5, .textReduced h6 {
+  display: inline-block;
+  margin: 0;
+}
+
+.mainTextColumn {
+  font-weight: 500;
+}
+
+.secondaryTextColumn {
+  font-weight: 400;
+}

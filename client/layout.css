@@ -53,6 +53,42 @@
   border-bottom: 1px solid #C4C4C4;
 }
 
+.scoresList {
+  display: table;
+  table-layout: fixed;
+  font-size: 1.15em;
+  color: #969696;
+  padding: 0;
+  width: 100%;
+}
+
+.scoresList .scoreItem {
+  display: table-row;
+}
+
+.scoreItem .scoreCell {
+  display: table-cell;
+  padding: 0.5em 0 0.3em 0;
+  border-bottom: 1px solid #C4C4C4;
+}
+
+.scoreItem .scoreCell p {
+  margin: 0;
+  vertical-align: middle;
+  overflow: hidden;
+  margin-right: 5%;
+}
+
+.scoreItem .scoreCell.scoreUsername {
+  font-weight: 300;
+  width: 45%;
+}
+
+.scoreItem .scoreCell.scoreScore {
+  font-weight: 500;
+  text-align: left;
+}
+
 .row {
   width: 100%;
   margin: 1em 0;
@@ -85,7 +121,7 @@
 
 .column-3 {
   display: inline-block;
-  margin: 0 0.3%;
+  margin: 0 0;
   width: 24%;
 }
 

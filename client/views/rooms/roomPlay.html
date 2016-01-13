@@ -66,10 +66,11 @@
     {{/each}}
   </div>
   <div class='footerContainer questionFooter'>
+    <h3> Score </h3>
     {{#each game.players}}
       <div class='column-3 textCenter'>
-        <h6> {{userName player}} </h6>
-        <p> {{score}} </p>
+        <h6 class='username'> {{userName player}} </h6>
+        <p class='score'> {{score}} </p>
       </div>
     {{/each}}
   </div>
@@ -80,15 +81,29 @@
 </template>
 
 <template name='roomResults'>
-  <p> Winner: {{userName winner.player}} </p>
-  <ol>
-    {{#each sortResults}}
-      <li>
-        {{userName player}}
-        {{score}}
-      </li>
-    {{/each}}
-  </ol>
-  <p> Wait: {{secondsLeft}} </p>
+  <div class='titleContainer'>
+    <h2> Results </h2>
+  </div>
+  <div class='winnerContainer'>
+    <p class='winnerTitle'> {{userName winner.player}} </p>
+    <p class='winnerSubtitle'> Winner! </p>
+  </div>
+  <div class='bodyContainer'>
+    <div class='scoresList'>
+      {{#each sortResults}}
+        <div class='scoreItem'>
+          <div class='scoreCell scoreUsername'>
+            <p> {{incremented @index}}. {{userName player}} </p>
+          </div>
+          <div class='scoreCell scoreScore'>
+            <p> {{score}} </p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+  <div class='footerContainer textRight questionFooter'>
+    <p class='highlightText'> {{secondsLeft}} </p>
+  </div>
 </template>
 

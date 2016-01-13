@@ -10,6 +10,16 @@
   font-size: 1em;
 }
 
+.winnerContainer {
+  background: #3CC1A3;
+  color: white;
+  padding: 2em;
+}
+
+.winnerContainer p {
+  margin: 0;
+}
+
 .questionOptions {
   min-height: 20vh;
   padding: 0 2em;
@@ -31,5 +41,18 @@
 
 .questionFooter h1, .questionFooter h2, .questionFooter h3,
 .questionFooter h4, .questionFooter h5, .questionFooter h6,  .questionFooter p  {
-  margin: 0 !important;
+  margin: 0 0 0.2em 0!important;
+}
+
+.questionFooter .username {
+  display: block;
+  font-size: 0.8em;
+  color: #969696;
+  font-weight: 400;
+  overflow: hidden;
+}
+
+.questionFooter .score {
+  font-weight: 400;
+  font-size: 1.1em;
 }

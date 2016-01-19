@@ -1,3 +1,24 @@
+/*
+ *
+ * Creates the room model and performs actions on them.
+ * room = {
+ *  privateRoom: boolean,
+ *  players: [1..4],
+ *  playersCount: integer,
+ *  playing: boolean,
+ *  displayingResults: boolean,
+ *  full: boolean,
+ *  game: Game
+ * }
+ *
+ * createRoom: creates a new Room instance
+ * addPlayer: adds a player to the room if not full
+ * removePlayer: removes a player from the room
+ * startGame: create a new game instance and associates it to the room,,
+ *            start the game
+ *
+ */
+
 RoomFactory = {}
 
 RoomFactory.createRoom = function(privacy) {

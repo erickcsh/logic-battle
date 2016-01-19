@@ -1,7 +1,5 @@
 <template name='roomPlay'>
   {{#if currentUser}}
-    {{> status}}
-
     <div class='container'>
       {{#if playing}}
         {{> roomGame}}
@@ -17,7 +15,7 @@
 </template>
 
 <template name='roomWait'>
-  <div class='titleContainer'>
+  <div class='titleContainer longTitle'>
     {{#unless full}}
       <h1> Waiting for players </h1>
     {{else}}
@@ -88,7 +86,7 @@
     <p class='winnerTitle'> {{userName winner.player}} </p>
     <p class='winnerSubtitle'> Winner! </p>
   </div>
-  <div class='bodyContainer'>
+  <div class='bodyContainer reducedHeight'>
     <div class='scoresList'>
       {{#each sortResults}}
         <div class='scoreItem'>

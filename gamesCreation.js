@@ -1,3 +1,13 @@
+/*
+ *
+ * Builds the Game object  Associates random questions to it
+ * game = {
+ *  questions: [10] { question: string, responses: [5]},
+ *  players: [1..4] { player: player, score: int }
+ * }
+ *
+ */
+
 GameFactory = {}
 
 GameFactory.createGame = function(players) {

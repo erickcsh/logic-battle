@@ -1,3 +1,18 @@
+/*
+ * Declares the Rooms model collection.
+ * Defines all the methods in which client interacts with
+ * the server.
+ *
+ * Methods:
+ *  createRoom: creates a new room and adds it to the collection
+ *  joinRoom: add player to a room
+ *  leaveRoom: removes a player from the room
+ *  getRandomRoom: return a random room where a user can be added
+ *  startGame: starts a game in a room with the current players waiting
+ *  answerQuestion: records the answer of a player for a question
+ *
+ */
+
 Rooms = new Meteor.Collection('rooms');
 
 if(Meteor.isServer) {
@@ -8,10 +23,18 @@ if(Meteor.isServer) {
   Meteor.methods({
     createRoom: function(playerID, privacy) {
       var room = RoomFactory.createRoom(privacy);
-      return Rooms.insert(room);
+      return Rooms.insert(room, function(error, result) {
+        if(error) {
+          throw new Meteor.Error( 500, 'Failed to create room. Try again' );
+        }
+        return result;
+      });
     },
     joinRoom: function(roomCode, playerID) {
       var room = Rooms.findOne(roomCode);
+      if(!room) {
+        throw new Meteor.Error( 500, 'Room not found. Please review the room code' );
+      }
       RoomFactory.addPlayer(room, playerID);
       return Rooms.update(room._id, room);
     },
@@ -24,7 +47,11 @@ if(Meteor.isServer) {
       }
     },
     getRandomRoom: function() {
-      return Rooms.findOne({ playing: false, full: false, players: {$nin: [this.userId] } });
+      var room = Rooms.findOne({ playing: false, full: false, players: {$nin: [this.userId] } });
+      if(!room) {
+        throw new Meteor.Error( 500, 'No games available. Please try again later' );
+      }
+      return room;
     },
     startGame: function(roomCode) {
       var room = Rooms.findOne(roomCode);
@@ -53,13 +80,6 @@ if(Meteor.isClient) {
       var room = RoomFactory.createRoom(privacy);
       Rooms.insert(room, function(error, result) {
         Router.go('room.play', {_id: result});
-      });
-    },
-    joinRoom: function(roomCode, playerID) {
-      var room = Rooms.findOne(roomCode);
-      RoomFactory.addPlayer(room, playerID);
-      Rooms.update(room._id, room, function(error, result) {
-        Router.go('room.play', {_id: room._id});
       });
     },
     leaveRoom: function(roomCode, playerID) {

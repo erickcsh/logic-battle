@@ -1,9 +1,20 @@
+/*
+ *
+ * Template actions for room related views
+ *
+ */
+
 Template.roomNew.events({
   'click #create-game': function(evt, template) {
     evt.preventDefault();
-    var privacy = template.find('input[name=privacy]:checked').value
+    var privacyField = template.find('input[name=privacy]:checked')
+    var privacy = (privacyField ? privacyField.value : '')
     Meteor.call('createRoom', Meteor.userId(), privacy, function(error, result) {
-      Router.go('room.play', {_id: result});
+      if(error) {
+        Meteor.messageHelpers.showMessage(error.reason);
+      } else {
+        Router.go('room.play', {_id: result});
+      }
     });
   }
 })
@@ -13,7 +24,11 @@ Template.roomJoin.events({
     evt.preventDefault();
     var roomCode = template.find('#room-code').value;
     Meteor.call('joinRoom', roomCode, Meteor.userId(), function(error, result) {
-      Router.go('room.play', {_id: roomCode});
+      if(error) {
+        Meteor.messageHelpers.showMessage(error.reason);
+      } else {
+        Router.go('room.play', {_id: roomCode});
+      }
     });
   }
 });

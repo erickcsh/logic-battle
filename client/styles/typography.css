@@ -2,7 +2,7 @@
 .titleContainer h4, .titleContainer h5, .titleContainer h6,
 .titleContainer p {
   margin: 0;
-  font-size: 40px;
+  font-size: 2em;
   font-weight: 300;
 }
 

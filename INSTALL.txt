@@ -1,0 +1,22 @@
+### INSTALL ###
+
+To install download repository from: github.com
+
+Meteor should be installed previously. Review how to install Meteor in
+meteor.com documentation or at the end of this file.
+
+In logic_battle folder, to install dependencies and start server, run:
+
+`meteor`
+
+To run on an Android device run:
+
+`meteor run android-device --mobile-server logic_battle.meteor.com`
+
+To run on a iOS device run:
+
+`meteor run ios-device --mobile-server logic_battle.meteor.com`
+
+Notice that to run on physical devices, previous configurations are needed for each mobile OS.
+Take a look at meteor documentation at meteor.com for previous configuration to
+run Android/iOS simulator or physical devices.

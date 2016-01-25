@@ -21,7 +21,7 @@ GameFactory.createGame = function(players) {
 }
 
 function getQuestions() {
-  var questions = Questions.find({}, { limit: 2 });
+  var questions = _.shuffle(Questions.find({}).fetch()).slice(0, 10);
   var arrangedQuestions = questions.map(function(question) {
     var responses = [{ answer: question.correctAnswer, selected: false, correct: true }];
     var incorrectResponses = question.otherAnswers.forEach(function(answer) {

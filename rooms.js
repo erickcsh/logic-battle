@@ -76,12 +76,6 @@ if(Meteor.isClient) {
   Meteor.subscribe('rooms');
 
   Meteor.methods({
-    createRoom: function(playerID, privacy) {
-      var room = RoomFactory.createRoom(privacy);
-      Rooms.insert(room, function(error, result) {
-        Router.go('room.play', {_id: result});
-      });
-    },
     leaveRoom: function(roomCode, playerID) {
       var room = Rooms.findOne(roomCode);
       RoomFactory.removePlayer(room, playerID);

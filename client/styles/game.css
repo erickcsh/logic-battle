@@ -3,6 +3,7 @@
   max-height: 25%;
   border-bottom: 1px solid #ccc;
   text-align: center;
+  cursor: pointer;
 }
 
 .questionContainer .question {

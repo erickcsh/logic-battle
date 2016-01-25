@@ -52,11 +52,29 @@ Template.questionAnswer.events({
   }
 });
 
+Template.roomGame.events({
+  'click .questionModal': function(evt, template) {
+    Session.set("seingQuestion", false);
+  },
+  'click .questionContainer': function(evt, template) {
+    Session.set("seingQuestion", true);
+  }
+});
+
 Template.roomGame.helpers({
   currentQuestion: function() {
     var room = this;
     var game = room.game;
     return game.questions[0];
+  },
+  seeQuestion: function() {
+    return Session.get("seingQuestion");
+  },
+  reducedQuestion: function(question) {
+    if(question.length > 93) {
+      return question.substr(0, 70) + "... Click to read more.";
+    }
+    return question;
   }
 });
 

@@ -1,7 +1,7 @@
 Seeds = {};
 
 var questions = [
-  { question: 'Look at this series: 2, 1, (1/2), (1/4), ... What number should come next?', correctAnswer: '(1/8)', otherAnswers: ['1/3', '2/8', '2/4', '1/16'] },
+  { question: 'Look at this series: 2, 1, (1/2), (1/4), ... What number should come next?', correctAnswer: '1/8', otherAnswers: ['1/3', '2/8', '2/4', '1/16'] },
   { question: 'Look at this series: 7, 10, 8, 11, 9, 12, ... What number should come next?', correctAnswer: 10, otherAnswers: [11, 7, 12, 13] },
   { question: 'Look at this series: 36, 34, 30, 28, 24, ... What number should come next?', correctAnswer: 22, otherAnswers: [20, 23, 26, 21] },
   { question: 'Look at this series: 22, 21, 23, 22, 24, 23, ... What number should come next?', correctAnswer: 25, otherAnswers: [22, 27, 26, 24] },

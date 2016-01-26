@@ -55,4 +55,9 @@
     max-height: 40%;
     min-height: 40%;
   }
+
+  .questionContainer .question {
+    font-size: 0.9em;
+    margin: 0;
+  }
 }

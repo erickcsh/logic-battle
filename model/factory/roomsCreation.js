@@ -40,10 +40,14 @@ RoomFactory.createRoom = function(privacy) {
 };
 
 RoomFactory.addPlayer = function(room, playerId) {
-  room.players.push(playerId);
-  room.playersCount++;
+  if(!room.full) {
+    room.players.push(playerId);
+    room.playersCount++;
 
-  if(room.playersCount == 4) { room.full = true; }
+    if(room.playersCount == 4) { room.full = true; }
+    return true;
+  }
+  return false;
 }
 
 RoomFactory.removePlayer = function(room, playerId) {

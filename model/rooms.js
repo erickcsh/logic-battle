@@ -35,8 +35,11 @@ if(Meteor.isServer) {
       if(!room) {
         throw new Meteor.Error( 500, 'Room not found. Please review the room code' );
       }
-      RoomFactory.addPlayer(room, playerID);
-      return Rooms.update(room._id, room);
+      if(RoomFactory.addPlayer(room, playerID)) {
+        return Rooms.update(room._id, room);
+      } else {
+        throw new Meteor.Error( 500, 'Room not accesible' );
+      }
     },
     leaveRoom: function(roomCode, playerID) {
       var room = Rooms.findOne(roomCode);
@@ -47,7 +50,7 @@ if(Meteor.isServer) {
       }
     },
     getRandomRoom: function() {
-      var room = Rooms.findOne({ playing: false, full: false, players: {$nin: [this.userId] } });
+      var room = Rooms.findOne({ playing: false, full: false, privateRoom: false, players: {$nin: [this.userId] } });
       if(!room) {
         throw new Meteor.Error( 500, 'No games available. Please try again later' );
       }
@@ -83,7 +86,7 @@ if(Meteor.isClient) {
       var room = Rooms.findOne(roomCode);
       RoomFactory.removePlayer(room, playerID);
       Rooms.update(room._id, room, function(error, result) {
-        Router.go('home', {} { replaceState: true });
+        Router.go('home', {}, { replaceState: true });
       });
     }
   })

@@ -36,7 +36,11 @@ Template.roomJoin.events({
 Template.roomWait.events({
   'click #start-game': function(evt, template) {
     evt.preventDefault();
-    Meteor.call('startGame', template.data._id);
+    Meteor.call('startGame', template.data._id, function(error, result) {
+      if(error) {
+        Meteor.messageHelpers.showMessage(error.reason);
+      }
+    });
   },
   'click #leave-room': function(evt, template) {
     evt.preventDefault();

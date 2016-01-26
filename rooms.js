@@ -55,9 +55,12 @@ if(Meteor.isServer) {
     },
     startGame: function(roomCode) {
       var room = Rooms.findOne(roomCode);
-      RoomFactory.startGame(room);
-      Rooms.update(room._id, room);
-      return room;
+      if(RoomFactory.startGame(room)) {
+        Rooms.update(room._id, room);
+        return room;
+      } else {
+        throw new Meteor.Error( 500, 'At least one more player is needed to start. Please wait' );
+      }
     },
     answerQuestion: function(roomCode, answer) {
       var room = Games.answerQuestion(roomCode, answer);
@@ -80,7 +83,7 @@ if(Meteor.isClient) {
       var room = Rooms.findOne(roomCode);
       RoomFactory.removePlayer(room, playerID);
       Rooms.update(room._id, room, function(error, result) {
-        Router.go('home');
+        Router.go('home', {} { replaceState: true });
       });
     }
   })

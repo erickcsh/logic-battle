@@ -54,9 +54,13 @@ RoomFactory.removePlayer = function(room, playerId) {
 }
 
 RoomFactory.startGame = function(room) {
-  var game = GameFactory.createGame(room.players);
-  room.game = game;
-  room.playing = true;
-  room.displayingResults = false;
+  if(room.playersCount > 1) {
+    var game = GameFactory.createGame(room.players);
+    room.game = game;
+    room.playing = true;
+    room.displayingResults = false;
+    return true;
+  }
+  return false;
 }
 

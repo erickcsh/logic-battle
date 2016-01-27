@@ -23,3 +23,9 @@ Template.optionsList.events({
     });
   }
 });
+
+Template.optionsList.helpers({
+  availableRooms: function() {
+    return !!Rooms.findOne({ playing: false, full: false, privateRoom: false, players: {$nin: [this.userId] } });
+  }
+});

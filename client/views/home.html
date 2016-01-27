@@ -15,7 +15,9 @@
 
 <template name='optionsList'>
   <div class='homeOptions'>
-    <a id='play-now' href='/room/join_now' class='button primary'> Play Now </a>
+    {{#if availableRooms}}
+      <a id='play-now' href='/room/join_now' class='button primary'> Play Now </a>
+    {{/if}}
     <a href='/room/join' class='button primary'> Join Game </a>
     <a href='/room/new' class='button primary'> Create Game </a>
   </div>
